@@ -4,12 +4,18 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Created by IntelliJ IDEA.
- * User: Sean M. Staley
- * Date: 10/1/12
- * Time: 8:12 PM
+ * A program that will generate a number sequence in a spiral format.
+ *
+ * @author Sean M. Staley
+ * @version 10/1/12
  */
 public class NumberSpiral {
+
+    /**
+     * A method that will print out a grid of increasing numbers in a spiral format.
+     *
+     * @param lastNumber the number before the last integer in the sequence.
+     */
     public void generateGrid(int lastNumber) {
         int gridLength = (int) Math.sqrt(lastNumber) + 2;
         int x = gridLength / 2;
@@ -18,6 +24,7 @@ public class NumberSpiral {
         int numberOfMoves = 2;
         String[][] grid = new String[gridLength][gridLength];
 
+        // While the current number we are working on is less than the last number, cycle through the loops again.
         while (currentNumber < lastNumber) {
             if (currentNumber == 0) {
                 grid[y][x] = Integer.toString(currentNumber);
@@ -25,6 +32,8 @@ public class NumberSpiral {
                 x++;
                 y--;
             }
+
+            // Check to see if the current number is 1. If it is, stop.
             if (currentNumber == lastNumber) {
                 break;
             }
@@ -81,6 +90,11 @@ public class NumberSpiral {
         }
     }
 
+    /**
+     * The main method that is executed when the program starts up.
+     *
+     * @param args no arguments are required for this method to function correctly.
+     */
     public static void main(String args[]) {
         System.out.println("Welcome to Sean's Spiral Builder!");
 
